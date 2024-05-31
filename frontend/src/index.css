@@ -1,0 +1,285 @@
+@import '@fontsource-variable/montserrat';
+@import '@fontsource-variable/hanken-grotesk';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+
+    --primary: 240 5.9% 10%;
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 240 10% 3.9%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 0 0% 98%;
+    --primary-foreground: 240 5.9% 10%;
+
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+body {
+ 
+  font-family: 'Montserrat Variable', sans-serif;
+}
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Hanken Grotesk Variable', sans-serif;
+}
+
+.blob-background {
+  background-color: #cbf3f0;
+  border-radius: 50%;
+  width: 100%;
+  height: 100%;
+  /* position: absolute; */
+  top:0;
+  left: 0;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.blob-background::before {
+  content: "";
+  /* position: absolute; */
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: #cbf3f0;
+  top: -50%;
+  left: -50%;
+}
+
+.login-form{
+  font-size: 16px;
+  height: 100vh;
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.my-form{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  gap: 1rem;
+  width: 100%;
+  max-width: 32rem;
+  padding: 3rem 2rem;
+  border: solid 0.5px black;
+  border-radius: 2rem;
+  height: fit-content;
+  background-color: #F9FAFB
+}
+
+.login-welcome-row {
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.logo {
+  height: 4rem;
+  margin: 0 auto;
+}
+
+.my-form-button{
+  white-space: nowrap;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+  line-height: 3.125rem;
+  outline: none;
+  font-size: 1rem;
+  letter-spacing: .025rem;
+  
+}
+
+.input-wrapper{
+  position: relative;
+  padding: 0.9375rem 0 0;
+  margin-bottom: 0.5rem;
+}
+
+.input_field{
+  font-size: 1.2rem;
+  padding: 0.375rem 9;
+  padding-right: 2rem;
+  padding-bottom: 0.5rem;
+  line-height: 2rem;
+  height: 2rem;
+  outline: 0;
+  border : 0;
+  width: 100%;
+  vertical-align: middle;
+  border-bottom: 3px solid  ;
+  background: transparent;
+  transition: orange 0.2s;
+}
+
+.input_field::placeholder{
+  color: transparent;
+}
+
+.input-wrapper {
+  user-select: none;
+}
+
+.input_field:placeholder-shown~.input_label{
+  cursor: text;
+  top: 0.8rem;
+  font-size: 1.2rem;
+} 
+
+.input_label,
+.input_field:focus~.input_label {
+  position: absolute;
+  top : -0.8rem;
+  display: block;
+  font-size: 1.2rem;
+  transition: 0.3s;
+}
+
+.input_field:focus~.input_label{
+  color: #FB923C;
+}
+
+.input_field:focus{
+  border-bottom: 3px solid #FB923C;
+}
+.input_field:focus~.input_icon{
+  stroke: #FB923C;
+}
+
+.input_icon {
+  position: absolute;
+  right: 0.875rem; /* Adjust the right position to fit your design */
+  bottom: 0rem;
+  top : 1.5rem; /* Adjust the bottom position to fit your design */
+  width: 2.25rem;
+  height: 2.25rem;
+  padding: 0.125rem;
+  transform: translate(-50%, -50%);
+  transform-origin: center;
+  cursor: pointer;
+}
+
+/* Add a specific class to adjust icon position when error message is shown */
+.error .input_icon {
+  bottom: calc(100% + 0rem); /* Adjust the position to place it above the input field */
+}
+
+.my-form_actions{
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  color: #475569;
+  gap:1rem;
+  
+}
+.my-form_row{
+  display: flex;
+  gap: 0.5rem;
+  justify-content: space-between;
+}
+
+.searchbar-form {
+  margin-top: -2rem;
+  padding: 1.25rem;
+  margin-bottom: 1.25rem;
+  border-radius: 0.375rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  background-color: #81E6D9;
+}
+
+.searchbar-item {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  padding: 0.5rem;
+}
+
+.icon {
+  margin-right: 0.5rem;
+}
+
+.searchbar-input, .searchbar-seat-input {
+  width: 100%;
+  border: none;
+  outline: none;
+  padding: 0.5rem;
+}
+
+.searchbar-label {
+  display: flex;
+  align-items: center;
+}
+
+.searchbar-submit {
+  grid-column: span 2;
+  cursor: pointer;
+}
